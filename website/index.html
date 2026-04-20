@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>evr lite — download</title>
+    <meta
+      name="description"
+      content="Peer-to-peer desktop chat. Download evr lite for Windows, macOS, or Linux."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>evr lite</h1>
+        <p class="tagline">P2P desktop chat — voice, video, screen, and text. Installers below track your latest <a class="link" href="#" id="releases-link">GitHub release</a>.</p>
+      </header>
+
+      <section class="panel" aria-labelledby="dl-heading">
+        <h2 id="dl-heading">Download</h2>
+        <p class="notes" style="margin-top: 0">Latest tag: <strong id="release-version">…</strong></p>
+        <div class="downloads">
+          <a class="btn" id="download-windows" href="#">Windows installer</a>
+          <a class="btn" id="download-mac" href="#">macOS disk image</a>
+          <a class="btn" id="download-linux" href="#">Linux (AppImage)</a>
+        </div>
+        <p id="release-status" hidden></p>
+        <p style="margin-top: 16px; margin-bottom: 0">
+          <a class="link" id="releases-link-2" href="#">All releases</a>
+          ·
+          <a class="link" id="repo-link" href="#">Repository</a>
+        </p>
+      </section>
+
+      <section class="panel notes">
+        <h2 style="margin-bottom: 10px">First install (friends)</h2>
+        <ul>
+          <li><strong>macOS:</strong> If Gatekeeper blocks the app, right-click the app or installer → <strong>Open</strong>, or allow it under <strong>Privacy &amp; Security</strong>.</li>
+          <li><strong>Windows:</strong> SmartScreen may show “Windows protected your PC” → <strong>More info</strong> → <strong>Run anyway</strong> for unsigned builds.</li>
+          <li>You still need a <strong>relay WebSocket URL</strong> (and often TURN) configured in the app unless the build ships a default.</li>
+        </ul>
+      </section>
+
+      <footer>
+        Installers are attached manually to each GitHub Release. This page reads the <code>latest</code> release via the public GitHub API.
+      </footer>
+    </div>
+
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+    <script>
+      ;(function () {
+        const repo = window.__EVR_GITHUB_REPO__ || ''
+        const base = `https://github.com/${repo}`
+        const rel = `${base}/releases`
+        document.getElementById('releases-link').href = rel
+        document.getElementById('releases-link-2').href = rel
+        document.getElementById('repo-link').href = base
+      })()
+    </script>
+  </body>
+</html>
